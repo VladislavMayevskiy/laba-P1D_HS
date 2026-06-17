@@ -97,8 +97,7 @@ export interface ContactContent {
   location: string;
   emailBtn: string;
   githubBtn: string;
-  linkedinBtn: string;
-  comingSoon: string;
+  companyName: string;
 }
 
 export interface LangContent {
@@ -404,8 +403,7 @@ export const content: Content = {
       location: "Ukraine",
       emailBtn: "Email",
       githubBtn: "GitHub",
-      linkedinBtn: "LinkedIn",
-      comingSoon: "Coming soon",
+      companyName: "Devensis",
     },
     footer:
       "© 2026 Vladyslav Maievskyi. Built with React, TypeScript and Chakra UI.",
@@ -697,8 +695,7 @@ export const content: Content = {
       location: "Україна",
       emailBtn: "Email",
       githubBtn: "GitHub",
-      linkedinBtn: "LinkedIn",
-      comingSoon: "Незабаром",
+      companyName: "Devensis",
     },
     footer:
       "© 2026 Владислав Маєвський. Створено за допомогою React, TypeScript та Chakra UI.",

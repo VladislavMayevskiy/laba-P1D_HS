@@ -1,20 +1,39 @@
 import {
   Button,
   Flex,
-  HStack,
   Icon,
   SimpleGrid,
   Stack,
   Text,
-  Tooltip,
   VStack,
 } from "@chakra-ui/react";
 import { FiMail, FiMapPin, FiUser } from "react-icons/fi";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { Section } from "./Section";
 import { SectionTitle } from "./SectionTitle";
 import { GlassCard } from "./GlassCard";
+
+const GITHUB_URL = "https://github.com/VladislavMayevskiy";
+const DEVENSIS_URL = "https://devensis.com";
+
+function DevensisLogo() {
+  return (
+    <Flex
+      align="center"
+      justify="center"
+      w={5}
+      h={5}
+      borderRadius="md"
+      fontSize="xs"
+      fontWeight="900"
+      color="white"
+      bgGradient="linear(135deg, #1ab2ff, #7b61ff)"
+    >
+      D
+    </Flex>
+  );
+}
 
 export function ContactSection() {
   const { t } = useLanguage();
@@ -93,49 +112,45 @@ export function ContactSection() {
             {t.contact.emailBtn}
           </Button>
 
-          <Tooltip label={t.contact.comingSoon} hasArrow>
-            <Button
-              size="lg"
-              leftIcon={<Icon as={FaGithub} />}
-              variant="outline"
-              borderColor="whiteAlpha.300"
-              color="whiteAlpha.700"
-              isDisabled
-              _disabled={{
-                opacity: 0.6,
-                cursor: "not-allowed",
-              }}
-            >
-              <HStack spacing={2}>
-                <Text>{t.contact.githubBtn}</Text>
-                <Text fontSize="xs" color="whiteAlpha.500">
-                  · {t.contact.comingSoon}
-                </Text>
-              </HStack>
-            </Button>
-          </Tooltip>
+          <Button
+            as="a"
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            size="lg"
+            leftIcon={<Icon as={FaGithub} />}
+            variant="outline"
+            borderColor="whiteAlpha.300"
+            color="white"
+            _hover={{
+              bg: "whiteAlpha.100",
+              borderColor: "brand.300",
+              transform: "translateY(-2px)",
+            }}
+            transition="all 0.2s"
+          >
+            {t.contact.githubBtn}
+          </Button>
 
-          <Tooltip label={t.contact.comingSoon} hasArrow>
-            <Button
-              size="lg"
-              leftIcon={<Icon as={FaLinkedin} />}
-              variant="outline"
-              borderColor="whiteAlpha.300"
-              color="whiteAlpha.700"
-              isDisabled
-              _disabled={{
-                opacity: 0.6,
-                cursor: "not-allowed",
-              }}
-            >
-              <HStack spacing={2}>
-                <Text>{t.contact.linkedinBtn}</Text>
-                <Text fontSize="xs" color="whiteAlpha.500">
-                  · {t.contact.comingSoon}
-                </Text>
-              </HStack>
-            </Button>
-          </Tooltip>
+          <Button
+            as="a"
+            href={DEVENSIS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            size="lg"
+            leftIcon={<DevensisLogo />}
+            variant="outline"
+            borderColor="whiteAlpha.300"
+            color="white"
+            _hover={{
+              bg: "whiteAlpha.100",
+              borderColor: "purple.300",
+              transform: "translateY(-2px)",
+            }}
+            transition="all 0.2s"
+          >
+            {t.contact.companyName}
+          </Button>
         </Stack>
       </GlassCard>
     </Section>
